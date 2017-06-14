@@ -42,5 +42,12 @@ namespace OSharp.Demo.Services
         /// 获取或设置 用户角色映射信息仓储对象
         /// </summary>
         public IRepository<UserRoleMap, int> UserRoleMapRepository { protected get; set; }
+
+        /// <summary>
+        /// 获取或设置 用户信息仓储对象
+        /// </summary>
+        public IRepository<UserGroup, int> UserGroupRepository { protected get; set; }
+
+
     }
 }

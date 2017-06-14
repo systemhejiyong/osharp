@@ -1063,7 +1063,7 @@ namespace OSharp.Redis
                     Thread.Sleep(200);
                     if (DateTime.Now.Subtract(now) > lockTimeout)
                     {
-                        throw new TimeoutException($"Redis并发锁的超时时间({lockTimeout.Value.Seconds}秒)已到");
+                        throw new TimeoutException("Redis并发锁的超时时间(" + lockTimeout.Value.Seconds + "秒)已到");
                     }
                     continue;
                 }

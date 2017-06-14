@@ -43,6 +43,7 @@ namespace OSharp.Demo.Web.Areas.Admin.Controllers
                         new TreeNode() { Text = "角色管理", IconCls = "pic_198", Url = Url.Action("Index", "Roles") },
                         //new TreeNode() { Text = "组织机构管理", IconCls = "pic_93", Url = Url.Action("Index", "Organizations") },
                         new TreeNode() { Text = "功能管理", IconCls = "pic_94", Url = Url.Action("Index", "Functions") },
+                        new TreeNode() { Text = "用户组管理", IconCls = "pic_94", Url = Url.Action("Index", "UsersGroup") },
                         new TreeNode() { Text = "实体数据管理", IconCls = "pic_95", Url = Url.Action("Index", "EntityInfos") },
                     }
                 },

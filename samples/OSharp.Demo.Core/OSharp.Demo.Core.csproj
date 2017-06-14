@@ -95,6 +95,7 @@
     </Compile>
     <Compile Include="Dtos\Identity\OrganizationInputDto.cs" />
     <Compile Include="Dtos\Identity\RoleInputDto.cs" />
+    <Compile Include="Dtos\Identity\UserGroupInputDto.cs" />
     <Compile Include="Dtos\Identity\UserInputDto.cs" />
     <Compile Include="Dtos\Identity\UserRoleMapInputDto.cs" />
     <Compile Include="Dtos\OAuth\ClientInputDto.cs" />
@@ -106,12 +107,16 @@
     <Compile Include="Dtos\Security\ModuleInputDto.cs" />
     <Compile Include="Identity\RoleManager.cs" />
     <Compile Include="Identity\RoleStore.cs" />
+    <Compile Include="ModelConfigurations\Identity\UserGroupConfiguration.cs" />
+    <Compile Include="ModelConfigurations\Identity\UserGroupConfiguration.generated.cs" />
     <Compile Include="ModelConfigurations\OAuth\ClientRefreshTokenConfiguration.cs" />
     <Compile Include="ModelConfigurations\Security\ModuleConfiguration.cs" />
+    <Compile Include="Models\Identity\UserGroup.cs" />
     <Compile Include="Models\OAuth\ClientRefreshToken.cs" />
     <Compile Include="Models\Security\Module.cs" />
     <Compile Include="OAuth\OAuthClientRefreshTokenStore.cs" />
     <Compile Include="Security\SecurityManager.cs" />
+    <Compile Include="Services\IdentityService.UserGroup.cs" />
     <Compile Include="Services\ServiceCollectionExtensions.cs" />
     <Compile Include="Identity\SignInManager.cs" />
     <Compile Include="Identity\UserManager.cs" />

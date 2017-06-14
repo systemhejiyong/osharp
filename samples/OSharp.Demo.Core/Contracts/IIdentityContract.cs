@@ -145,5 +145,31 @@ namespace OSharp.Demo.Contracts
         Task<OperationResult> SetUserRoles(int id, int[] roleIds);
 
         #endregion
+
+        #region 用户组信息业务
+        IQueryable<UserGroup> UserGroup { get; }
+
+        /// <summary>
+        /// 添加组织机构信息信息
+        /// </summary>
+        /// <param name="inputDtos">要添加的组织机构信息DTO信息</param>
+        /// <returns>业务操作结果</returns>
+        OperationResult AddUserGroups(params UserGroupInputDto[] inputDtos);
+
+        /// <summary>
+        /// 更新组织机构信息信息
+        /// </summary>
+        /// <param name="inputDtos">包含更新信息的组织机构信息DTO信息</param>
+        /// <returns>业务操作结果</returns>
+        OperationResult EditUserGroups(params UserGroupInputDto[] inputDtos);
+
+        /// <summary>
+        /// 删除组织机构信息信息
+        /// </summary>
+        /// <param name="ids">要删除的组织机构信息编号</param>
+        /// <returns>业务操作结果</returns>
+        Task<OperationResult> DeleteUserGroups(params int[] ids);
+
+        #endregion
     }
 }

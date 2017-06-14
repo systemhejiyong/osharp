@@ -488,6 +488,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Areas\Admin\Views\UsersGroup\Index.cshtml" />
     <None Include="Properties\PublishProfiles\OSharp.Demo.Web.pubxml" />
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -540,6 +541,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\Identity\OrganizationsController.cs" />
     <Compile Include="Areas\Admin\Controllers\Identity\RolesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Identity\UsersGroupController.cs" />
     <Compile Include="Areas\Admin\Controllers\Identity\UsersController.cs" />
     <Compile Include="Areas\Admin\Controllers\Security\EntityInfosController.cs" />
     <Compile Include="Areas\Admin\Controllers\Security\FunctionsController.cs" />

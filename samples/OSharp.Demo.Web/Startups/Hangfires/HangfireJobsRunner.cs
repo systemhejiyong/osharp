@@ -40,7 +40,7 @@ namespace OSharp.Demo.Web.Startups.Hangfires
             {
                 cancelToken.ThrowIfCancellationRequested();
                 IIdentityContract contract = _serviceProvider.GetService<IIdentityContract>();
-                Debug.WriteLine($"HashCode:{contract.GetHashCode()}---{i}");
+                Debug.WriteLine("HashCode:" + contract.GetHashCode() + "---" + i);
                 await Task.Delay(1000, cancelToken.ShutdownToken);
             }
         }

@@ -4,13 +4,12 @@
     string navDataUrl = Url.Action("GetMenuData");
 }
 <div class="easyui-layout" data-options="fit:true">
-    <div data-options="region:'north', height:50" style="padding: 10px;">
+    <div data-options="region:'north', height:50" style="padding: 10px; background:#0094ff;">
         <span style="font-size: 18px;">OSharp后台管理系统</span>
         <a href="/" target="_blank">返回首页</a>
     </div>
     <div data-options="region:'west', split:true, minWidth:100, width:150, title:'导航菜单'">
         <div id="main-nav" class="easyui-accordion" data-options="fit:true, border:false, selected:true">
-
         </div>
     </div>
     <div data-options="region:'center'">
@@ -20,8 +19,8 @@
             </div>
         </div>
     </div>
-    <div data-options="region:'south', height:50">
-        <p style="text-align:center; line-height:20px;">Copyright &copy; OSharp 2014 - @DateTime.Now.Year</p>
+    <div data-options="region:'south', height:30" style="background:#0094ff; color:#fff; font-weight:bold;">
+        <p style="text-align:center; line-height:8px;">Copyright &copy; OSharp 2017 - @DateTime.Now.Year</p>
     </div>
 </div>
 <div id="tab-menu" class="easyui-menu" style="width: 150px;">
@@ -35,16 +34,15 @@
     <div id="tab-menu-closeother" data-options="iconCls:'pic_101'">关闭其他</div>
     <div id="tab-menu-closeall" data-options="iconCls:'pic_283'">关闭所有</div>
 </div>
-
 @section footer{
     <script type="text/javascript">
-        $(function() {
-            $.getJSON("@navDataUrl", function(data) {
+        $(function () {
+            $.getJSON("@navDataUrl", function (data) {
                 if (data.length == 0) {
                     return;
                 }
                 //第一层生成手风琴的项
-                $.each(data, function(i, item) {
+                $.each(data, function (i, item) {
                     var id = item.Id;
                     $("#main-nav").accordion("add", {
                         title: item.Text,
@@ -60,7 +58,7 @@
                     var treeData = transToTreeData(item.Children);
                     $("#tree-" + id).tree({
                         data: treeData,
-                        onClick: function(node) {
+                        onClick: function (node) {
                             if (node.attributes) {
                                 var tabTitle = node.text;
                                 var url = node.attributes.url;
@@ -73,7 +71,7 @@
             });
 
             $("#main-tab").tabs({
-                onContextMenu: function(e, title) {
+                onContextMenu: function (e, title) {
                     e.preventDefault();
                     $("#tab-menu").menu("show", { left: e.pageX, top: e.pageY })
                         .data("tabTitle", title); //将点击的Tab标题加到菜单数据中
@@ -81,7 +79,7 @@
             });
 
             $("#tab-menu").menu({
-                onClick: function(item) {
+                onClick: function (item) {
                     tabHandle(this, item.id);
                 }
             });
@@ -179,7 +177,7 @@
         }
 
         function transToTreeData(data) {
-            return $.Enumerable.From(data).Select(function(m) {
+            return $.Enumerable.From(data).Select(function (m) {
                 var obj = {};
                 obj.id = m.Id;
                 obj.text = m.Text;
