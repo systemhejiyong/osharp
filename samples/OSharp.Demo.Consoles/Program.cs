@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -202,9 +203,10 @@ namespace OSharp.Demo.Consoles
 
         private static void Method06()
         {
-            var assembly = typeof(IServiceCollection).Assembly;
-            Console.WriteLine(assembly.FullName);
-            Console.WriteLine(assembly.Location);
+            string str = "我是中文HelloWorld123".ToBase64String();
+            Console.WriteLine(str);
+            str = str.FromBase64String();
+            Console.WriteLine(str);
         }
 
         private static void Method07()

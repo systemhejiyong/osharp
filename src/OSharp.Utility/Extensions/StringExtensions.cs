@@ -247,8 +247,19 @@ namespace OSharp.Utility.Extensions
         /// </summary>
         public static bool IsUrl(this string value)
         {
-            const string pattern = @"^(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#!]*[\w\-\@?^=%&amp;/~\+#!])?$";
-            return value.IsMatch(pattern);
+            try
+            {
+                if (value.IsNullOrEmpty() || value.Contains(' '))
+                {
+                    return false;
+                }
+                Uri uri = new Uri(value);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -537,6 +548,37 @@ namespace OSharp.Utility.Extensions
         }
 
         /// <summary>
+        /// 将字符串转换为Base64字符串，默认编码为<see cref="Encoding.UTF8"/>
+        /// </summary>
+        /// <param name="source">正常的字符串</param>
+        /// <param name="encoding">编码</param>
+        /// <returns>Base64字符串</returns>
+        public static string ToBase64String(this string source, Encoding encoding = null)
+        {
+            if (encoding == null)
+            {
+                encoding = Encoding.UTF8;
+            }
+            return Convert.ToBase64String(encoding.GetBytes(source));
+        }
+
+        /// <summary>
+        /// 将Base64字符串转换为正常字符串，默认编码为<see cref="Encoding.UTF8"/>
+        /// </summary>
+        /// <param name="base64String">Base64字符串</param>
+        /// <param name="encoding">编码</param>
+        /// <returns>正常字符串</returns>
+        public static string FromBase64String(this string base64String, Encoding encoding = null)
+        {
+            if (encoding == null)
+            {
+                encoding = Encoding.UTF8;
+            }
+            byte[] bytes = Convert.FromBase64String(base64String);
+            return encoding.GetString(bytes);
+        }
+
+        /// <summary>
         /// 将字符串转换为十六进制字符串，默认编码为<see cref="Encoding.UTF8"/>
         /// </summary>
         public static string ToHexString(this string source, Encoding encoding = null)
@@ -591,7 +633,7 @@ namespace OSharp.Utility.Extensions
             }
             return bytes;
         }
-
+        
         /// <summary>
         /// 获取中文字符串的首字母
         /// </summary>

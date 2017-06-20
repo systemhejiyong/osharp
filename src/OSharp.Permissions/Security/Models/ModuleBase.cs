@@ -68,8 +68,7 @@ namespace OSharp.Core.Security.Models
         /// <summary>
         /// 获取或设置 节点内排序码
         /// </summary>
-        [Range(0, 999)]
-        public int OrderCode { get; set; }
+        public double OrderCode { get; set; }
 
         /// <summary>
         /// 获取 从根结点到当前结点的树形路径编号数组，由<see cref="TreePathString"/>属性转换，此属性仅支持在内存中使用
@@ -94,7 +93,7 @@ namespace OSharp.Core.Security.Models
         /// <summary>
         /// 获取或设置 父模块信息
         /// </summary>
-        public TModule Parent { get; set; }
+        public virtual TModule Parent { get; set; }
 
         /// <summary>
         /// 获取或设置 子模块集合，子模块自动拥有父模块的功能
@@ -114,7 +113,7 @@ namespace OSharp.Core.Security.Models
         /// <summary>
         /// 获取或设置 拥有此模块的用户信息集合
         /// </summary>
-        public ICollection<TUser> Users { get; set; }
+        public virtual ICollection<TUser> Users { get; set; }
 
         /// <summary>
         /// 获取实体的TreePath，即由根结点Id到当前结点Id构成的字符串
